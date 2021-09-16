@@ -1,0 +1,117 @@
+h2 {
+    text-align: center;
+    color: rgb(91, 67, 158);
+  }
+  h3 {
+   text-align: center;
+   color: rgb(16, 102, 30);
+ }
+ 
+ h4 {
+    text-align: center;
+    color: rgb(143, 56, 16);
+  }
+  p {
+    text-align: center;
+    color: rgb(18, 9, 99);
+  }
+ 
+ li{
+   text-align: center;
+ 
+   color: #0b4479;
+ }
+ .header {
+  padding: 10px;
+  text-align: center;
+}
+ .header img {
+   float: left;
+   width: 100px;
+   height: 50px;
+   position: relative;;
+   }
+   a:active {
+    color: rgb(129, 51, 38);
+  }
+ 
+ a{
+   text-align: center;
+ 
+ }
+ a:visited {
+   color: rgb(129, 12, 123);
+ }
+ 
+ a:hover {
+   color: hotpink;
+   text-decoration: underline;
+   font-size:150%;
+ 
+ }
+ 
+ 
+ .center-text {
+   text-align: center;
+ }
+ 
+ 
+ .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #a9bcd1;
+   color: #0b2a8f;
+   text-align: center;
+ }
+ 
+ form { 
+   display: block;
+   margin-top: 0em;
+   padding: 20px;
+   width: 100%;
+   float: center;
+   border-radius: 4px;
+   text-align: center;
+ 
+ }
+ .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  form {
+  max-width: 64em;
+  margin: auto;
+  text-align: center;
+}
