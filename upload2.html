@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>image data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='bisag_n.png') }}" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="/static/bisag_n.png" alt="logo" />
+    </div>
+    
+
+    <div class="container">
+        <p>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+        </p>
+        
+        <form method="post" action="/" enctype="multipart/form-data">
+            <dl>
+                <p>
+                    <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+                </p>
+            </dl>
+            <p>
+                <input type="submit" value="show image">
+            </p>
+        </form>
+        <div>
+        {% if filenames %}
+          <div class="row">
+    
+            {% for filename in filenames %}
+    
+                  <div class="column">
+                    <img src="{{ url_for('display_image', filename=filename) }}">
+                </div>
+    
+            {% endfor %}
+          </div>
+        {% endif %}
+        </div>
+    
+        <form method="POST" action="/slider">
+          <div class="row">
+    
+            <div class="column">
+              <input type="range" min="1" max="255" value="50" class="slider" id="r" name = "r">
+              <p>R: <span id="demo1"></span></p>
+            </div>
+            
+            <div class="column">
+              <input type="range" min="1" max="255" value="150" class="slider" id="g" name = "g">
+              <p>G: <span id="demo2"></span></p>
+            </div>
+            
+            <div class="column">
+              <input type="range" min="1" max="255" value="200" class="slider" id="b" name = "b">
+              <p>B: <span id="demo3"></span></p>
+            </div>
+        
+          </div>
+          <input type="submit" value="processing" />
+            
+        </form>
+      
+        <script>
+          var slider = document.getElementById("r");
+          var output = document.getElementById("demo1");
+          output.innerHTML = slider.value;
+          
+          var slider1 = document.getElementById("g");
+          var output1 = document.getElementById("demo2");
+          output1.innerHTML = slider1.value;
+          
+          var slider2 = document.getElementById("b");
+          var output2 = document.getElementById("demo3");
+          output2.innerHTML = slider2.value;
+          
+          slider.oninput = function() {
+            output.innerHTML = this.value;
+          }
+          slider1.oninput = function() {
+            output1.innerHTML = this.value;
+          }
+          slider2.oninput = function() {
+            output2.innerHTML = this.value;
+          }
+          </script>
+   </div>
+   <div class="container">
+    <section>
+
+    {% if filename1 %}
+            <!-- <img src="{{ url_for('test', filename=filename) }}"> -->
+            <img src="{{ filename1}}">
+
+    {% endif %}
+    </section>
+
+    </div>
+    
+    <div class="footer">
+        <p>@copyright by Bisag-N</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    
+    
+</body>
+
+</html>
